@@ -50,7 +50,7 @@
     /etc/os-release (END)
     ```
   
-    ![less](.\picture\less)
+    ![less](.\picture\less.png)
   
   - 当前 Linux 内核版本信息
   
@@ -138,7 +138,7 @@
 
   可以看到桌面已经有了复制过来的文件
 
-  ![file_in_Windows](.\picture\file_in_Windows)
+  ![file_in_Windows](.\picture\file_in_Windows.png)
 
   同理可以将 Windows 上的文件复制到 Linux 上
 
@@ -154,7 +154,7 @@
   desktop.ini  sh  test
   ```
 
-  ![file_in_Linux](.\picture\file_in_Linux)
+  ![file_in_Linux](.\picture\file_in_Linux.png)
 
 - **如何配置 SSH 免密登录？**
 
