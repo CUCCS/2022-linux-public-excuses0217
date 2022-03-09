@@ -61,7 +61,7 @@
     Linux cuc-lab 5.4.0-100-generic #113-Ubuntu SMP Thu Feb 3 18:43:29 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux
     ```
     
-    ![uname -a](picture/uname -a.png)
+    ![uname](picture/uname.png)
     
     命令: cat /proc/version
   
@@ -76,9 +76,9 @@
 
   在 Virtualbox 中设置两块网卡，一块为<u>仅主机（Host-Only）网络</u>，<u>另一块为网络地址转换（NAT）</u>
 
-  ![仅主机（Host-Only）网络](picture\仅主机（Host-Only）网络.png)
+  ![Host-Only](picture\Host-Only.png)
 
-  ![网络地址转换(NAT)](picture\网络地址转换(NAT).png)
+  ![NAT](picture\NAT.png)
 
   使用命令 ip a 可以查看网卡信息
 
@@ -260,4 +260,26 @@
   此方法参考视频链接：https://www.youtube.com/watch?v=gce7niSU82E
   ```
 
-  
+
+
+
+### 遇到的问题及解决方法
+
+- **配置SSH免密登录时无法使用 ssh-copy-id 命令**
+
+  **解决：**参考视频链接：https://www.youtube.com/watch?v=gce7niSU82E 绕开使用 ssh-copy-id 命令，但后来经老师提醒在 Windows 上需要在 git bash 上使用 ssh-copy-id 命令。由于我的系统是新装的，没有 git ，经过再次下载安装配置后成功再次使用 ssh-copy-id 命令配置SSH免密登录
+
+- **git clone 远程仓库到本地时出现问题**
+
+  ![git_clone](picture/git_clone.png)
+
+  **解决：**参考 https://www.bilibili.com/video/BV1Hb4y1R7FE?p=33&share_medium=iphone&share_plat=ios&share_session_id=3FE8CA05-B24D-4C4F-A64A-777DF0C19747&share_source=WEIXIN&share_tag=s_i&timestamp=1646740533&unique_k=MkrpjqS 配置网络设置即可正常 clone 仓库到本地
+
+- git push 到 GitHub 仓库后图片无法正常渲染
+
+  **解决：**
+
+  - 要使用相对路径，需要在 markdown 文档同目录下建一个专门用来放图片的文件夹，通过相对路径引用图片
+  - 注意要使用 ‘ / ’ 符号来写路径，而不是 Windows 系统中的 ‘ \’ 来写路径，不然上传到 GitHub 上后无法识别图片路径
+  - 图片名中不能带有空格，不然也无法识别
+
