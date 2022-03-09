@@ -1,5 +1,12 @@
 # 第一章：Linux基础（实验）
 
+### 实验环境
+
+- Ubuntu 20.04.2 LTS (在 VirtualBox 虚拟机中实现)
+- Windows 11 pro （本机）
+
+------
+
 ### 实验目标
 
 - 调查并记录实验环境的如下信息：
@@ -9,7 +16,7 @@
 - 如何使用 `scp` 在「虚拟机和宿主机之间」、「本机和远程 Linux 系统之间」传输文件？
 - 如何配置 SSH 免密登录？
 
-
+------
 
 ### 实验过程
 
@@ -28,7 +35,7 @@
     Codename:       focal
     ```
   
-    ![lsb_release](picture/lsb_release.png)
+    ![lsb_release](img/lsb_release.png)
   
      命令: less /etc/os-release
 
@@ -50,7 +57,7 @@
     /etc/os-release (END)
     ```
   
-    ![less](picture/less.png)
+    ![less](img/less.png)
   
   - 当前 Linux 内核版本信息
   
@@ -61,7 +68,7 @@
     Linux cuc-lab 5.4.0-100-generic #113-Ubuntu SMP Thu Feb 3 18:43:29 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux
     ```
     
-    ![uname](picture/uname.png)
+    ![uname](img/uname.png)
     
     命令: cat /proc/version
   
@@ -70,15 +77,15 @@
     Linux version 5.4.0-100-generic (buildd@lcy02-amd64-002) (gcc version 9.3.0 (Ubuntu 9.3.0-17ubuntu1~20.04)) #113-Ubuntu SMP Thu Feb 3 18:43:29 UTC 2022
     ```
     
-    ![cat](picture/cat.png)
+    ![cat](img/cat.png)
   
 - **Virtualbox 安装完 Ubuntu 之后新添加的网卡如何实现系统开机自动启用和自动获取 IP？**
 
   在 Virtualbox 中设置两块网卡，一块为<u>仅主机（Host-Only）网络</u>，<u>另一块为网络地址转换（NAT）</u>
 
-  ![Host-Only](picture\Host-Only.png)
+  ![Host-Only](img\Host-Only.png)
 
-  ![NAT](picture\NAT.png)
+  ![NAT](img\NAT.png)
 
   使用命令 ip a 可以查看网卡信息
 
@@ -118,7 +125,7 @@
   /home/cuc
   ```
 
-  ![create_test](picture/create_test.png)
+  ![create_test](img/create_test.png)
 
   在 Windows 中远程将 Linux 的文件复制在本机中
 
@@ -134,11 +141,11 @@
   PS C:\Users\ASUS\Desktop>
   ```
 
-  ![scp_Linux_to_Windows](picture/scp_Linux_to_Windows.png)
+  ![scp_Linux_to_Windows](img/scp_Linux_to_Windows.png)
 
   可以看到桌面已经有了复制过来的文件
 
-  ![file_in_Windows](picture/file_in_Windows.png)
+  ![file_in_Windows](img/file_in_Windows.png)
 
   同理可以将 Windows 上的文件复制到 Linux 上
 
@@ -154,7 +161,7 @@
   desktop.ini  sh  test
   ```
 
-  ![file_in_Linux](picture/file_in_Linux.png)
+  ![file_in_Linux](img/file_in_Linux.png)
 
 - **如何配置 SSH 免密登录？**
 
@@ -193,7 +200,7 @@
   #这里我已配置完毕，所以显示已经安装
   ```
 
-  ![配置SSH免密登录](picture/配置SSH免密登录.png)
+  ![配置SSH免密登录](img/配置SSH免密登录.png)
 
   另外，还可以在 Windows 自带命令行( CMD 或 Windows PowerShell )中通过 scp 命令的方法建立远程SSH链接
 
@@ -260,7 +267,7 @@
   此方法参考视频链接：https://www.youtube.com/watch?v=gce7niSU82E
   ```
 
-
+------
 
 
 ### 遇到的问题及解决方法
