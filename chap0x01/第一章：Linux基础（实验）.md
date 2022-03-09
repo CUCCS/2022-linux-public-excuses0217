@@ -28,7 +28,7 @@
     Codename:       focal
     ```
   
-    ![lsb_release -a](picture/lsb_release -a.png)
+    ![lsb_release](picture/lsb_release.png)
   
      命令: less /etc/os-release
 
