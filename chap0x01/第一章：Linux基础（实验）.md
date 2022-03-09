@@ -24,7 +24,7 @@
 
   - 当前 Linux 发行版基本信息
 
-    命令: lsb_release -a
+    命令 `lsb_release -a`
 
     ```linux
     cuc@cuc-lab:~$ lsb_release -a
@@ -37,7 +37,7 @@
   
     ![lsb_release](img/lsb_release.png)
   
-     命令: less /etc/os-release
+     命令`less /etc/os-release`
 
     ```
     cuc@cuc-lab:~$ less /etc/os-release
@@ -61,7 +61,7 @@
   
   - 当前 Linux 内核版本信息
   
-    命令: uname -a
+    命令 `uname -a`
   
     ```
     cuc@cuc-lab:~$ uname -a
@@ -70,7 +70,7 @@
     
     ![uname](img/uname.png)
     
-    命令: cat /proc/version
+    命令`cat /proc/version`
   
     ```
     cuc@cuc-lab:~$ cat /proc/version
@@ -165,7 +165,7 @@
 
 - **如何配置 SSH 免密登录？**
 
-  现在git bash中使用命令 ssh-keygen.exe
+  现在git bash中使用命令`ssh-keygen.exe`
 
   ```
   ASUS@ROG-X13-Flow MINGW64 ~/Desktop
@@ -178,7 +178,7 @@
   #这里我已经生成过SSH密钥，所以不再配置
   ```
 
-  使用命令  cat ~/.ssh/id_rsa.pub 查看密钥
+  使用命令`cat ~/.ssh/id_rsa.pub`查看密钥
 
   ```
   ASUS@ROG-X13-Flow MINGW64 ~/Desktop
@@ -186,7 +186,7 @@
   ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC0MlrdqnlpE81KH5UYRAbzrsKKJ+ZORfzXYFmu8I3nZ8jo8BvkSCR9XUt1mbcr1njRrK0UC91yhLyaZsZJQH5Z2aDU4Q40tbg7BP4w+cjkwhfJX2TwyufDAt6HBCsHNq3A93BFDEDxscoJmKG6DVnHDpWeq7Q8kZqrt0rGW5NAy2mlVsqKgIjJrzxzSusCMFoOHGdUFSvJEUww/Im3v12SQ6Nd5sef8iiWbZh44rBACRfU80dLNxbws2l6BiKpFtUADu58hOI8TMM7efBoGgws2QlOaSrorr4iI5UYv0UrwvsDkizv0UpNpN9WpBWGhtgYGACUippmI78F1a1AllbWr1xkXMvY12gs71vmEuuKLAi3sUGw7GbB3SQb4R5w72iDkOZb4zoYRGIoR8ATOXXdIMpNJEYcPC1x3Zyk471fZGAw7jUJDn5/LT/NsQD6yTETkMbPkDHX+RnPoN0VeaL+4PmOna7QFGXaFbTabguzoXUAuJOx857BqISCkmMINNM= lixiongfei0217@gmail.com
   ```
 
-  使用命令  ssh-copy-id -i  ~/.ssh/id_rsa.pub cuc@192.168.56.1** 配置免密登录
+  使用命令`ssh-copy-id -i  ~/.ssh/id_rsa.pub cuc@192.168.56.1**` 配置免密登录
 
   ```
   ASUS@ROG-X13-Flow MINGW64 ~/Desktop
@@ -272,19 +272,19 @@
 
 ### 遇到的问题及解决方法
 
-- **配置SSH免密登录时无法使用 ssh-copy-id 命令**
+- **配置SSH免密登录时无法使用`ssh-copy-id`命令**
 
-  **解决：**参考视频链接：https://www.youtube.com/watch?v=gce7niSU82E 绕开使用 ssh-copy-id 命令，但后来经老师提醒在 Windows 上需要在 git bash 上使用 ssh-copy-id 命令。由于我的系统是新装的，没有 git ，经过再次下载安装配置后成功再次使用 ssh-copy-id 命令配置SSH免密登录
+  解决：参考视频链接：https://www.youtube.com/watch?v=gce7niSU82E 绕开使用 ssh-copy-id 命令，但后来经老师提醒在 Windows 上需要在 git bash 上使用 ssh-copy-id 命令。由于我的系统是新装的，没有 git ，经过再次下载安装配置后成功再次使用 ssh-copy-id 命令配置SSH免密登录
 
 - **git clone 远程仓库到本地时出现问题**
 
-  ![git_clone](picture/git_clone.png)
+  ![git_clone](img/git_clone.png)
 
-  **解决：**参考 https://www.bilibili.com/video/BV1Hb4y1R7FE?p=33&share_medium=iphone&share_plat=ios&share_session_id=3FE8CA05-B24D-4C4F-A64A-777DF0C19747&share_source=WEIXIN&share_tag=s_i&timestamp=1646740533&unique_k=MkrpjqS 配置网络设置即可正常 clone 仓库到本地
+  解决：参考 https://www.bilibili.com/video/BV1Hb4y1R7FE?p=33&share_medium=iphone&share_plat=ios&share_session_id=3FE8CA05-B24D-4C4F-A64A-777DF0C19747&share_source=WEIXIN&share_tag=s_i&timestamp=1646740533&unique_k=MkrpjqS 配置网络设置即可正常 clone 仓库到本地
 
 - git push 到 GitHub 仓库后图片无法正常渲染
 
-  **解决：**
+  解决：
 
   - 要使用相对路径，需要在 markdown 文档同目录下建一个专门用来放图片的文件夹，通过相对路径引用图片
   - 注意要使用 ‘ / ’ 符号来写路径，而不是 Windows 系统中的 ‘ \’ 来写路径，不然上传到 GitHub 上后无法识别图片路径
