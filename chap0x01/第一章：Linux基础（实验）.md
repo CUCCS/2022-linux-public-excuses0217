@@ -83,9 +83,9 @@
 
   在 Virtualbox 中设置两块网卡，一块为<u>仅主机（Host-Only）网络</u>，<u>另一块为网络地址转换（NAT）</u>
 
-  ![Host-Only](img\Host-Only.png)
+  ![Host-Only](img/Host-Only.png)
 
-  ![NAT](img\NAT.png)
+  ![NAT](img/NAT.png)
 
   使用命令 ip a 可以查看网卡信息
 
