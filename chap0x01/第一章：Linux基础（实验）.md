@@ -28,7 +28,7 @@
     Codename:       focal
     ```
   
-    ![lsb_release -a](picture\lsb_release -a.png)
+    ![lsb_release -a](picture/lsb_release -a.png)
   
      命令: less /etc/os-release
 
@@ -50,7 +50,7 @@
     /etc/os-release (END)
     ```
   
-    ![less](picture\less.png)
+    ![less](picture/less.png)
   
   - 当前 Linux 内核版本信息
   
@@ -61,7 +61,7 @@
     Linux cuc-lab 5.4.0-100-generic #113-Ubuntu SMP Thu Feb 3 18:43:29 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux
     ```
     
-    ![uname -a](picture\uname -a.png)
+    ![uname -a](picture/uname -a.png)
     
     命令: cat /proc/version
   
@@ -70,7 +70,7 @@
     Linux version 5.4.0-100-generic (buildd@lcy02-amd64-002) (gcc version 9.3.0 (Ubuntu 9.3.0-17ubuntu1~20.04)) #113-Ubuntu SMP Thu Feb 3 18:43:29 UTC 2022
     ```
     
-    ![cat](picture\cat.png)
+    ![cat](picture/cat.png)
   
 - **Virtualbox 安装完 Ubuntu 之后新添加的网卡如何实现系统开机自动启用和自动获取 IP？**
 
@@ -118,7 +118,7 @@
   /home/cuc
   ```
 
-  ![create_test](picture\create_test.png)
+  ![create_test](picture/create_test.png)
 
   在 Windows 中远程将 Linux 的文件复制在本机中
 
@@ -134,11 +134,11 @@
   PS C:\Users\ASUS\Desktop>
   ```
 
-  ![scp_Linux_to_Windows](picture\scp_Linux_to_Windows.png)
+  ![scp_Linux_to_Windows](picture/scp_Linux_to_Windows.png)
 
   可以看到桌面已经有了复制过来的文件
 
-  ![file_in_Windows](picture\file_in_Windows.png)
+  ![file_in_Windows](picture/file_in_Windows.png)
 
   同理可以将 Windows 上的文件复制到 Linux 上
 
@@ -154,7 +154,7 @@
   desktop.ini  sh  test
   ```
 
-  ![file_in_Linux](picture\file_in_Linux.png)
+  ![file_in_Linux](picture/file_in_Linux.png)
 
 - **如何配置 SSH 免密登录？**
 
@@ -193,7 +193,7 @@
   #这里我已配置完毕，所以显示已经安装
   ```
 
-  ![配置SSH免密登录](picture\配置SSH免密登录.png)
+  ![配置SSH免密登录](picture/配置SSH免密登录.png)
 
   另外，还可以在 Windows 自带命令行( CMD 或 Windows PowerShell )中通过 scp 命令的方法建立远程SSH链接
 
