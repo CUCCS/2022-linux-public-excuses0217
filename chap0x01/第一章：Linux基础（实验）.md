@@ -3,6 +3,7 @@
 ### 实验环境
 
 - Ubuntu 20.04.2 LTS (在 VirtualBox 虚拟机中实现)
+- CentOS Linux release 7.7.1908 (阿里云在线实验)
 - Windows 11 pro （本机）
 
 ------
@@ -37,8 +38,19 @@
   
     ![lsb_release](img/lsb_release.png)
   
-     命令`less /etc/os-release`
-
+    ```
+    [root@iZuf63b7clxu2v8kxgn53eZ ~]# lsb_release -a
+    LSB Version:    :core-4.1-amd64:core-4.1-noarch
+    Distributor ID: CentOS
+    Description:    CentOS Linux release 7.7.1908 (Core)
+    Release:        7.7.1908
+    Codename:       Core
+    ```
+  
+     ![lsb_release_centos](img/lsb_release_centos.png)
+  
+    命令`less /etc/os-release`
+  
     ```
     cuc@cuc-lab:~$ less /etc/os-release
     
@@ -59,6 +71,27 @@
   
     ![less](img/less.png)
   
+    ```
+    
+    NAME="CentOS Linux"
+    VERSION="7 (Core)"
+    ID="centos"
+    ID_LIKE="rhel fedora"
+    VERSION_ID="7"
+    PRETTY_NAME="CentOS Linux 7 (Core)"
+    ANSI_COLOR="0;31"
+    CPE_NAME="cpe:/o:centos:centos:7"
+    HOME_URL="https://www.centos.org/"
+    BUG_REPORT_URL="https://bugs.centos.org/"
+    
+    CENTOS_MANTISBT_PROJECT="CentOS-7"
+    CENTOS_MANTISBT_PROJECT_VERSION="7"
+    REDHAT_SUPPORT_PRODUCT="centos"
+    REDHAT_SUPPORT_PRODUCT_VERSION="7"
+    ```
+  
+    ![less_centos](img/less_centos.png)
+  
   - 当前 Linux 内核版本信息
   
     命令 `uname -a`
@@ -70,14 +103,28 @@
     
     ![uname](img/uname.png)
     
+    ```
+    [root@iZuf63b7clxu2v8kxgn53eZ ~]# uname -a
+    Linux iZuf63b7clxu2v8kxgn53eZ 3.10.0-1062.18.1.el7.x86_64 #1 SMP Tue Mar 17 23:49:17 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
+    ```
+    
+    ![uname_centos](img/uname_centos.png)
+    
     命令`cat /proc/version`
-  
+    
     ```
     cuc@cuc-lab:~$ cat /proc/version
     Linux version 5.4.0-100-generic (buildd@lcy02-amd64-002) (gcc version 9.3.0 (Ubuntu 9.3.0-17ubuntu1~20.04)) #113-Ubuntu SMP Thu Feb 3 18:43:29 UTC 2022
     ```
     
     ![cat](img/cat.png)
+    
+    ```
+    [root@iZuf63b7clxu2v8kxgn53eZ ~]# cat /proc/version
+    Linux version 3.10.0-1062.18.1.el7.x86_64 (mockbuild@kbuilder.bsys.centos.org) (gcc version 4.8.5 20150623 (Red Hat 4.8.5-39) (GCC) ) #1 SMP Tue Mar 17 23:49:17 UTC 2020
+    ```
+    
+    ![cat_centos](img/cat_centos.png)
   
 - **Virtualbox 安装完 Ubuntu 之后新添加的网卡如何实现系统开机自动启用和自动获取 IP？**
 
@@ -112,6 +159,8 @@
   ```
   
 - **如何使用 `scp` 在「虚拟机和宿主机之间」、「本机和远程 Linux 系统之间」传输文件？**
+
+  - 「虚拟机和宿主机之间」
 
   先在 Linux 系统中创建一个文件，并确定文件位置
 
@@ -154,7 +203,7 @@
   desktop.ini                               100%  282   281.9KB/s   00:00
   ```
 
-  在 Linux 中查看
+  在 Ubuntu 中查看
 
   ```
   cuc@cuc-lab:~$ ls
@@ -162,6 +211,26 @@
   ```
 
   ![file_in_Linux](img/file_in_Linux.png)
+
+  - 「本机和远程 Linux 系统之间」
+
+  将 Windows 上的文件复制到 阿里云的 Cent OS 上
+
+  ```
+  PS C:\Users\ASUS> cd .\Desktop\
+  PS C:\Users\ASUS\Desktop> scp desktop.ini root@139.224.245.224:/root/
+  root@139.224.245.224's password:
+  desktop.ini
+  ```
+
+  在 Cent OS 上查看
+
+  ```
+  [root@iZuf62gnon36uygzefjot6Z ~]# ls
+  desktop.ini
+  ```
+
+  ![file_in_centos](img/file_in_centos.png)
 
 - **如何配置 SSH 免密登录？**
 
@@ -282,11 +351,12 @@
 
   解决：参考 https://www.bilibili.com/video/BV1Hb4y1R7FE?p=33&share_medium=iphone&share_plat=ios&share_session_id=3FE8CA05-B24D-4C4F-A64A-777DF0C19747&share_source=WEIXIN&share_tag=s_i&timestamp=1646740533&unique_k=MkrpjqS 配置网络设置即可正常 clone 仓库到本地
 
-- git push 到 GitHub 仓库后图片无法正常渲染
+- **git push 到 GitHub 仓库后图片无法正常渲染**
 
   解决：
 
   - 要使用相对路径，需要在 markdown 文档同目录下建一个专门用来放图片的文件夹，通过相对路径引用图片
   - 注意要使用 ‘ / ’ 符号来写路径，而不是 Windows 系统中的 ‘ \’ 来写路径，不然上传到 GitHub 上后无法识别图片路径
   - 图片名中不能带有空格，不然也无法识别
+  - 还有因为政策原因，需要配置网络才能看到图片
 
