@@ -712,11 +712,11 @@ df -h
    Description=This is a linux test.
    Requires=network-online.target
    After=network.target
-   
    [Service]
-   ExecStart=/bin/echo network-on >> /home/cuc/log 
-   ExecStop=/bin/echo network-on >> /home/cuc/log 
-   
+   Type=oneshot
+   ExecStart=/bin/echo network-on
+   ExecStop=/bin/echo network-off
+   RemainAfterExit=yes
    [Install]
    WantedBy=multi-user.target
    
@@ -729,9 +729,11 @@ df -h
 
    ![test.service](img/test.service.png)
 
-2. 重载后运行`test.service`
+2. 关闭`network-online.target`服务后，观察`test.service`的日志
 
-3. 不知为何提示 Active: inactive (dead)，也就是服务 disabled。我再研究一下……
+   ![network-online.target_off](img/network-online.target_off.png)
+
+3. 可以看到日志里通过`network-online.target`服务的开启关闭引起了`test.service`的正确执行，从而实现了在网络连通时运行一个指定脚本，在网络断开时运行另一个脚本
 
 ##### 如何通过 systemd 设置实现一个脚本在任何情况下被杀死之后会立即重新启动,实现''杀不死''?
 
@@ -764,18 +766,38 @@ df -h
   timedatectl set-ntp 0
   ```
 
-- systemd 设置实现脚本运行所示，出现了无法运行的情况。
+- systemd 设置实现脚本运行时，出现了无法运行的情况。
 
+  ```bash
+  test.service - This is a linux test.
+       Loaded: loaded (/etc/systemd/system/test.service; disabled; vendor preset: enabled)
+       Active: inactive (dead)
+  ```
 
+  猜测可能是写 .service 文件时没配置好导致的，借鉴了网上一些写法，最后还是运行起来了。
+
+------
 
 ## 参考链接
 
 - [Systemd 入门教程：命令篇 by 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html)
+
 - [Systemd 入门教程：实战篇 by 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-part-two.html)
+
 - [第三章：Linux服务器系统管理基础](https://c4pr1c3.github.io/LinuxSysAdmin/chap0x03.md.html#/title-slide)
+
 - [最新cenos执行service httpd restart 报错Failed to restart httpd.service: Unit not found.](https://www.shuzhiduo.com/A/GBJrwMr950/)
+
 - [走进Linux之systemd启动过程](https://blog.csdn.net/YuZhiHui_No1/article/details/52228763)
+
 - [apache2](https://httpd.apache.org/)
+
 - [Apache HTTP Server](https://en.wikipedia.org/wiki/Apache_HTTP_Server)
+
 - [Failed to set time: Automatic time synchronization is enabled](https://www.linuxhelp.com/questions/failed-to-set-time-automatic-time-synchronization-is-enabled)
+
 - [systemd.service 中文手册](http://www.jinbuguo.com/systemd/systemd.service.html)
+
+- [linux 之.service文件简介 （新版systemctl服务）](https://blog.csdn.net/m0_46426259/article/details/121681493)
+
+  
