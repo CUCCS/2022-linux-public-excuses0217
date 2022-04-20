@@ -7,6 +7,8 @@ before_install:
 
 script:
   - cd ./chap0x04/code/
+  - wget "https://c4pr1c3.gitee.io/linuxsysadmin/exp/chap0x04/worldcupplayerinfo.tsv"
+  - wget "https://c4pr1c3.github.io/LinuxSysAdmin/exp/chap0x04/web_log.tsv.7z"
   - ls -l
   - shellcheck processimage.sh
   - echo Task1
