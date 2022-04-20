@@ -605,7 +605,7 @@ df -h
    $ sudo mkdir /mnt/share
    
    # 实现挂载
-   $ sudo mount -t vboxsf share_cynthia /mnt/share/
+   $ sudo mount -t vboxsf mysharefile /mnt/share/
    
    # 再次进入  /mnt/share  目录下就可以查看共享文件夹内的文件
    $ cd /mnt/share
