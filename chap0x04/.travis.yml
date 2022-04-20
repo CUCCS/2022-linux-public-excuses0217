@@ -7,31 +7,31 @@ before_install:
 
 script:
   - ls -l
-  - shellcheck task1.sh
+  - shellcheck processimage.sh
   - echo Task1
-  - bash task1.sh -h
-  - bash task1.sh -q ./image 50
-  - bash task1.sh -r ./image 50%
-  - bash task1.sh -w ./image yyc center 200 
-  - bash task1.sh -p ./image Pre
-  - bash task1.sh -s ./image Suf
-  - bash task1.sh -t ./image
-  - shellcheck task2.sh
+  - bash processimage.sh -h
+  - bash processimage.sh -q ./image 50
+  - bash processimage.sh -r ./image 50%
+  - bash processimage.sh -w ./image yyc center 200 
+  - bash processimage.sh -p ./image Pre
+  - bash processimage.sh -s ./image Suf
+  - bash processimage.sh -t ./image
+  - shellcheck world_cup_statistic.sh
   - echo Task2
-  - bash task2.sh -h
-  - bash task2.sh -a
-  - bash task2.sh -p
-  - bash task2.sh -n
-  - bash task2.sh -m
-  - shellcheck task3.sh
+  - bash world_cup_statistic.sh -h
+  - bash world_cup_statistic.sh -a
+  - bash world_cup_statistic.sh -p
+  - bash world_cup_statistic.sh -n
+  - bash world_cup_statistic.sh -m
+  - shellcheck weblog.sh
   - echo Task3
-  - bash task3.sh -h
-  - bash task3.sh -t
-  - bash task3.sh -i
-  - bash task3.sh -u
-  - bash task3.sh -s
-  - bash task3.sh -c
-  - bash task3.sh -f /images/NASA-logosmall.gif
+  - bash weblog.sh -h
+  - bash weblog.sh -t
+  - bash weblog.sh -i
+  - bash weblog.sh -u
+  - bash weblog.sh -s
+  - bash weblog.sh -c
+  - bash weblog.sh -f /images/NASA-logosmall.gif
 
 notifications:
   email:
