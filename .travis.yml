@@ -20,10 +20,11 @@ script:
   - shellcheck world_cup_statistic.sh
   - echo Task2
   - bash world_cup_statistic.sh -h
-  - bash world_cup_statistic.sh -a
+  - bash world_cup_statistic.sh
+  - bash world_cup_statistic.sh -r
   - bash world_cup_statistic.sh -p
   - bash world_cup_statistic.sh -n
-  - bash world_cup_statistic.sh -m
+  - bash world_cup_statistic.sh -a
   - shellcheck weblog.sh
   - echo Task3
   - bash weblog.sh -h
