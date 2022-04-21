@@ -19,7 +19,6 @@ script:
   - bash processimage.sh -t ./image
   - shellcheck world_cup_statistic.sh
   - echo Task2
-  - bash world_cup_statistic.sh -h
   - bash world_cup_statistic.sh
   - bash world_cup_statistic.sh -r
   - bash world_cup_statistic.sh -p
