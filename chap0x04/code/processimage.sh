@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
- 
+ #检查运行的前置条件
 check_dependencies(){
     if [[ -z "$(convert -v 2>/dev/null)" ]];then
         echo "You haven't install ImageMagick"
     fi
 }
 
+# 帮助文档
 describe() {
     cat << EOF
     Description:
@@ -40,10 +41,10 @@ describe() {
 EOF
 }
 
-
+# 对jpg格式图片进行图片质量压缩
 CompressQuality(){
     Q=$2    
-    for jpg in "$1"/* ;do  
+    for jpg in "$1"/* ;do  # 查找后缀是jpg的文件
         mgk_num=$(xxd  -p  -l  3  "$jpg" )
         if [[ "$mgk_num" == "ffd8ff" ]]; then
             convert -strip -interlace Plane -gaussian-blur 0.01 -quality "$Q" "$jpg" "$jpg"
@@ -55,7 +56,7 @@ CompressQuality(){
     exit 0 
 }
 
-
+# 对jpeg/png/svg格式图片在保持原始宽高比的前提下压缩分辨率
 CompressResolution(){
     R=$2
     for img in "$1"/* ;do
@@ -71,7 +72,7 @@ CompressResolution(){
     exit 0
 }
 
-
+# 对图片批量添加自定义文本水印
 WaterMark(){
     content=$2
     position=$3
@@ -83,6 +84,7 @@ WaterMark(){
     exit 0
 }
 
+# 批量重命名——统一添加文件名前缀
 Prefix(){
     prefix=$2
     for img in "$1"/*; do
@@ -93,6 +95,7 @@ Prefix(){
     exit 0
 }
 
+# 批量重命名——统一添加文件名后缀
 Suffix(){
     suffix=$2
     for img in "$1"/*; do
@@ -103,6 +106,7 @@ Suffix(){
     exit 0
 }
 
+# 将png/svg图片统一转换为jpg格式图片
 Transform(){
     for img in "$1"/* ;do
         format="$(identify -format "%m" "$img")"
