@@ -51,13 +51,13 @@
 
 [任务三数据](./task_report/Task3Data.md)
 
-##### 练习：求两个整数的最大公因数
-
-[maximum_common_factor.sh](./code/maximum_common_factor.sh)
-
 以上实验均在Travis CI 持续集成服务环境中验证通过
 
 ![TravisPass](./img/TravisPass.jpg)
+
+##### 练习：求两个整数的最大公因数
+
+[maximum_common_factor.sh](./code/maximum_common_factor.sh)
 
 ------
 
