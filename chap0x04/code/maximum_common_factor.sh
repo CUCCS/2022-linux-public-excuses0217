@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
  # 求两个数的最大公约数，利用辗转相除法，递归算法
-function Greatest_Common_Divisor {
+function Maximum_Common_Factor {
 
     if [[ "$(($1%$2))" -eq 0 ]]; then 
         echo "最大公约数为：$2"
     else 
-        Greatest_Common_Divisor "$2" "$(($1%$2))" ;
+        Maximum_Common_Factor "$2" "$(($1%$2))" ;
     fi
 }
 
@@ -43,7 +43,7 @@ do
     isNum "$b"
     y=$?
     if [ "$x" -eq 2 ]&&[ "$y" -eq 2 ]; then
-        Greatest_Common_Divisor "$a" "$b"
+        Maximum_Common_Factor "$a" "$b"
         break
     fi
 done

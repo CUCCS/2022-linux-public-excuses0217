@@ -33,6 +33,9 @@ script:
   - bash weblog.sh -s
   - bash weblog.sh -c
   - bash weblog.sh -f /images/NASA-logosmall.gif
+  - echo Exercise
+  - bash maximum_common_factor.sh
+  - 60 80
 
 notifications:
   email:
