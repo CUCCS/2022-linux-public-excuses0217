@@ -21,31 +21,34 @@
 
 #### 基本要求
 
-- 在一台主机（虚拟机）上同时配置 Nginx 和 VeryNginx
-  - VeryNginx 作为本次实验的 Web App 的反向代理服务器和 WAF
-  - PHP-FPM 进程的反向代理配置在 nginx 服务器上，VeryNginx 服务器不直接配置 Web 站点服务
-- 使用 [Wordpress](https://wordpress.org/) 搭建的站点对外提供访问的地址为： http://wp.sec.cuc.edu.cn
-- 使用 [Damn Vulnerable Web Application (DVWA)](http://www.dvwa.co.uk/) 搭建的站点对外提供访问的地址为： http://dvwa.sec.cuc.edu.cn
+- [x] 在一台主机（虚拟机）上同时配置 Nginx 和 VeryNginx
+  - [x] VeryNginx 作为本次实验的 Web App 的反向代理服务器和 WAF
+  - [x] PHP-FPM 进程的反向代理配置在 nginx 服务器上，VeryNginx 服务器不直接配置 Web 站点服务
+
+- [x] VeryNginx 作为本次实验的 Web App 的反向代理服务器和 WAF
+- [x] PHP-FPM 进程的反向代理配置在 nginx 服务器上，VeryNginx 服务器不直接配置 Web 站点服务
+- [x] 使用 [Wordpress](https://wordpress.org/) 搭建的站点对外提供访问的地址为： http://wp.sec.cuc.edu.cn
+- [x] 使用 [Damn Vulnerable Web Application (DVWA)](http://www.dvwa.co.uk/) 搭建的站点对外提供访问的地址为： http://dvwa.sec.cuc.edu.cn
 
 
 
 #### 安全加固要求
 
-- 使用IP地址方式均无法访问上述任意站点，并向访客展示自定义的**友好错误提示信息页面 -1**
-- [Damn Vulnerable Web Application (DVWA)](http://www.dvwa.co.uk/) 只允许白名单上的访客来源IP，其他来源的IP访问均向访客展示自定义的**友好错误提示信息页面 -2**
-- 在不升级 Wordpress 版本的情况下，通过定制 [VeryNginx](https://github.com/alexazhou/VeryNginx) 的访问控制策略规则，**热**修复 [WordPress < 4.7.1 - Username Enumeration](https://www.exploit-db.com/exploits/41497/)
-- 通过配置 [VeryNginx](https://github.com/alexazhou/VeryNginx) 的 Filter 规则实现对 [Damn Vulnerable Web Application (DVWA)](http://www.dvwa.co.uk/) 的 SQL 注入实验在低安全等级条件下进行防护
+- [x] 使用IP地址方式均无法访问上述任意站点，并向访客展示自定义的**友好错误提示信息页面 -1**
+- [x] [Damn Vulnerable Web Application (DVWA)](http://www.dvwa.co.uk/) 只允许白名单上的访客来源IP，其他来源的IP访问均向访客展示自定义的**友好错误提示信息页面 -2**
+- [x] 在不升级 Wordpress 版本的情况下，通过定制 [VeryNginx](https://github.com/alexazhou/VeryNginx) 的访问控制策略规则，**热**修复 [WordPress < 4.7.1 - Username Enumeration](https://www.exploit-db.com/exploits/41497/)
+- [x] 通过配置 [VeryNginx](https://github.com/alexazhou/VeryNginx) 的 Filter 规则实现对 [Damn Vulnerable Web Application (DVWA)](http://www.dvwa.co.uk/) 的 SQL 注入实验在低安全等级条件下进行防护
 
 
 
 #### VeryNginx 配置要求
 
-- [VeryNginx](https://github.com/alexazhou/VeryNginx) 的 Web 管理页面仅允许白名单上的访客来源 IP，其他来源的 IP 访问均向访客展示自定义的**友好错误提示信息页面 -3**
-- 通过定制 VeryNginx 的访问控制策略规则实现：
-  - 限制 DVWA 站点的单 IP 访问速率为每秒请求数 < 50
-  - 限制 Wordpress 站点的单 IP 访问速率为每秒请求数 < 20
-  - 超过访问频率限制的请求直接返回自定义**错误提示信息页面 -4**
-  - 禁止 curl 访问
+- [x] [VeryNginx](https://github.com/alexazhou/VeryNginx) 的 Web 管理页面仅允许白名单上的访客来源 IP，其他来源的 IP 访问均向访客展示自定义的**友好错误提示信息页面 -3**
+- [x] 通过定制 VeryNginx 的访问控制策略规则实现：
+  - [x] 限制 DVWA 站点的单 IP 访问速率为每秒请求数 < 50
+  - [x] 限制 Wordpress 站点的单 IP 访问速率为每秒请求数 < 20
+  - [x] 超过访问频率限制的请求直接返回自定义**错误提示信息页面 -4**
+  - [x] 禁止 curl 访问
 
 
 
