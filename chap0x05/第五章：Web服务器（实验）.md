@@ -203,7 +203,7 @@ sudo systemctl reload nginx
 
 2.3.3 如果安装了 Apache2 可能会出现的情况
 
-![nginx_welc](img\nginx_welc.png)
+![nginx_welc](img/nginx_welc.png)
 
 
 
