@@ -50,9 +50,9 @@
 
 ## 实验过程
 
-#### 1 实验所需的软件下载与安装
+### 1 实验所需的软件下载与安装
 
-##### 1.1 安装 Nginx
+#### 1.1 安装 Nginx
 
 ```bash
 sudo apt update && sudo apt install nginx -y
@@ -60,7 +60,7 @@ sudo apt update && sudo apt install nginx -y
 
 
 
-##### 1.2 安装 VeryNginx
+#### 1.2 安装 VeryNginx
 
 ```bash
 #安装git
@@ -89,7 +89,7 @@ sudo python3 install.py install
 
 
 
-##### 1.3 安装 PHP
+#### 1.3 安装 PHP
 
 ```bash
 #安装PHP
@@ -101,7 +101,7 @@ sudo systemctl restart php7.4-fpm
 
 
 
-##### 1.4 安装 MySQL
+#### 1.4 安装 MySQL
 
 ```bash
 #安装MySQL
@@ -110,7 +110,7 @@ sudo apt install mysql-server -y
 
 
 
-##### 1.5 下载 WordPress
+#### 1.5 下载 WordPress
 
 ```bash
 # 下载安装包
@@ -129,7 +129,7 @@ sudo cp -r wordpress /var/www/html/wp.sec.cuc.edu.cn
 
 
 
-##### 1.6 下载 DVWA
+#### 1.6 下载 DVWA
 
 ```bash
 # 下载
@@ -145,9 +145,9 @@ sudo mv DVWA/* /var/www/html/dvwa.sec.cuc.edu.cn
 
 
 
-#### 2 配置文件与环境搭建
+### 2 配置文件与环境搭建
 
-##### 2.1 规定的各监听端口与对应网站
+#### 2.1 规定的各监听端口与对应网站
 
 |           | Port |
 | --------- | ---- |
@@ -158,7 +158,7 @@ sudo mv DVWA/* /var/www/html/dvwa.sec.cuc.edu.cn
 
 
 
-##### 2.2 更改 Windows 主机和虚拟机 hosts 文件
+#### 2.2 更改 Windows 主机和虚拟机 hosts 文件
 
 ```bash
 #web
@@ -179,7 +179,7 @@ notepad C:\Windows\System32\drivers\etc\hosts
 
 
 
-##### 2.3 检查 Nginx 安装
+#### 2.3 检查 Nginx 安装
 
 2.3.1 修改默认端口，方便后续安装 VeryNginx
 
@@ -207,7 +207,7 @@ sudo systemctl reload nginx
 
 
 
-##### 2.4 在 Nginx上配置 Wordpress
+#### 2.4 在 Nginx上配置 Wordpress
 
 2.4.1 在 MySQL 中新建一个数据库用于 wordpress
 
@@ -327,7 +327,7 @@ systemctl restart nginx.service
 
 
 
-##### 2.5 在 Nginx上 配置 DVWA
+#### 2.5 在 Nginx上 配置 DVWA
 
 2.5.1 在 MySQL 中新建一个数据库用于 dvwa
 
@@ -452,7 +452,7 @@ systemctl restart php7.4-fpm.service
 
 
 
-##### 2.6 配置 VeryNginx 文件
+#### 2.6 配置 VeryNginx 文件
 
 2.6.1 修改用户名
 
@@ -497,9 +497,9 @@ sudo /opt/verynginx/openresty/nginx/sbin/nginx -s reload
 
 
 
-#### 3 PHP-FPM 进程的反向代理配置以及实现安全加固要求
+### 3 PHP-FPM 进程的反向代理配置以及实现安全加固要求
 
-##### 3.1 使用 VeryNginx 反向代理 Wordpress,DVWA
+#### 3.1 使用 VeryNginx 反向代理 Wordpress,DVWA
 
 3.1.1 配置 Matcher 规则：进入 config 页面，加入以下规则并保存
 
@@ -534,7 +534,7 @@ systemctl restart nginx.service
 
 
 
-##### 3.2 使用IP地址方式均无法访问上述任意站点，并向访客展示自定义的**友好错误提示信息页面-1**
+#### 3.2 使用IP地址方式均无法访问上述任意站点，并向访客展示自定义的**友好错误提示信息页面-1**
 
 3.2.1 配置规则
 
@@ -558,7 +558,7 @@ systemctl restart nginx.service
 
 
 
-##### 3.3 Damn Vulnerable Web Application (DVWA) 只允许白名单上的访客来源IP，其他来源的IP访问均向访客展示自定义的**友好错误提示信息页面 -2**
+#### 3.3 Damn Vulnerable Web Application (DVWA) 只允许白名单上的访客来源IP，其他来源的IP访问均向访客展示自定义的**友好错误提示信息页面 -2**
 
 3.3.1 配置规则
 
@@ -582,7 +582,7 @@ systemctl restart nginx.service
 
 
 
-##### 3.5 在不升级 Wordpress 版本的情况下，通过定制 VeryNginx 的访问控制策略规则，**热**修复 [WordPress < 4.7.1 - Username Enumeration](https://www.exploit-db.com/exploits/41497/)
+#### 3.5 在不升级 Wordpress 版本的情况下，通过定制 VeryNginx 的访问控制策略规则，**热**修复 [WordPress < 4.7.1 - Username Enumeration](https://www.exploit-db.com/exploits/41497/)
 
 3.5.1 重现漏洞
 
@@ -636,7 +636,7 @@ sudo php err.php
 
 
 
-##### 3.6 通过配置 [VeryNginx](https://github.com/alexazhou/VeryNginx) 的 Filter 规则实现对 [Damn Vulnerable Web Application (DVWA)](http://www.dvwa.co.uk/) 的 SQL 注入实验在低安全等级条件下进行防护
+#### 3.6 通过配置 [VeryNginx](https://github.com/alexazhou/VeryNginx) 的 Filter 规则实现对 [Damn Vulnerable Web Application (DVWA)](http://www.dvwa.co.uk/) 的 SQL 注入实验在低安全等级条件下进行防护
 
 3.6.1 将 security level 修改为 low
 
@@ -665,9 +665,9 @@ systemctl restart nginx.service
 
 
 
-#### 4 实现 VeryNginx 的配置要求
+### 4 实现 VeryNginx 的配置要求
 
-##### 4.1 VeryNginx 的 Web 管理页面仅允许白名单上的访客来源 IP，其他来源的 IP 访问均向访客展示自定义的**友好错误提示信息页面 -3**
+#### 4.1 VeryNginx 的 Web 管理页面仅允许白名单上的访客来源 IP，其他来源的 IP 访问均向访客展示自定义的**友好错误提示信息页面 -3**
 
 4.1.1 配置规则
 
@@ -714,7 +714,7 @@ sudo /opt/verynginx/openresty/nginx/sbin/nginx -s reload
 
 
 
-##### 4.2 限制 DVWA 站点的单 IP 访问速率为每秒请求数 < 50；限制 Wordpress 站点的单 IP 访问速率为每秒请求数 < 20；超过访问频率限制的请求直接返回自定义**错误提示信息页面 -4**；
+#### 4.2 限制 DVWA 站点的单 IP 访问速率为每秒请求数 < 50；限制 Wordpress 站点的单 IP 访问速率为每秒请求数 < 20；超过访问频率限制的请求直接返回自定义**错误提示信息页面 -4**；
 
 4.2.1 配置规则
 
@@ -758,7 +758,7 @@ ab -c 10 -n 100 http://dvwa.sec.cuc.edu.cn/
 
 
 
-##### 4.3 禁止 curl 访问
+#### 4.3 禁止 curl 访问
 
 4.3.1 配置规则
 
