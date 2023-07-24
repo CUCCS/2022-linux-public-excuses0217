@@ -1,0 +1,39 @@
+language: bash
+
+before_install:
+  - sudo apt-get update
+  - sudo apt-get upgrade
+  - sudo apt-get install -y shellcheck p7zip-full imagemagick ghostscript 
+
+script:
+  - cd ./chap0x04/code/
+  - ls -l
+  - shellcheck processimage.sh
+  - echo Task1
+  - bash processimage.sh -h
+  - bash processimage.sh -q ./image 50
+  - bash processimage.sh -r ./image 50%
+  - bash processimage.sh -w ./image yyc center 200 
+  - bash processimage.sh -p ./image Pre
+  - bash processimage.sh -s ./image Suf
+  - bash processimage.sh -t ./image
+  - shellcheck world_cup_statistic.sh
+  - echo Task2
+  - bash world_cup_statistic.sh
+  - bash world_cup_statistic.sh -r
+  - bash world_cup_statistic.sh -p
+  - bash world_cup_statistic.sh -n
+  - bash world_cup_statistic.sh -a
+  - shellcheck weblog.sh
+  - echo Task3
+  - bash weblog.sh -h
+  - bash weblog.sh -t
+  - bash weblog.sh -i
+  - bash weblog.sh -u
+  - bash weblog.sh -s
+  - bash weblog.sh -c
+  - bash weblog.sh -f /images/NASA-logosmall.gif
+
+notifications:
+  email:
+    on_success: never
